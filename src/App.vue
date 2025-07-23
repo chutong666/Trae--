@@ -39,7 +39,10 @@ const deleteTodo = (id) => {
 
 <template>
   <div class="todo-app">
-    <h1>To-Do List</h1>
+    <div class="logo-container">
+        <img src="/todo-logo.svg" alt="Todo Logo" class="todo-logo" />
+      </div>
+      <h1>To-Do List</h1>
     <div class="todo-input-container">
       <input
         v-model="newTodoText"
@@ -55,7 +58,6 @@ const deleteTodo = (id) => {
           <input
             type="checkbox"
             v-model="todo.completed"
-            @change="toggleTodo(todo.id)"
           />
           <span :class="{ completed: todo.completed }">{{ todo.text }}</span>
         </label>
@@ -77,6 +79,17 @@ const deleteTodo = (id) => {
   margin: 2rem auto;
   padding: 0 1rem;
   font-family: 'Arial', sans-serif;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.todo-logo {
+  width: 40px;
+  height: 40px;
 }
 
 h1 {
